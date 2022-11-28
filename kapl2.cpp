@@ -7,15 +7,7 @@ void task(DLIST& DL, std::string searchname,int targetyear)
 	bool stop = true;
 	std::cout << "\n\nSearch results : \n\n";
 	std::cout << "~~~~~~~~~~~~~~~~~~\n";
-	while (ptr) {
-		if ((ptr->info.getyear() > targetyear || ptr->info.getyear() == targetyear) && ptr->info.search(searchname, ptr->info.getname())) {
-			ptr->info.print();
-		}
-		else { break; }
-		ptr = ptr->next;
-	}
-	ptr = DL.get_begin();
-	while (stop) {
+	while (stop && ptr) {
 		if ((ptr->info.getyear() > targetyear || ptr->info.getyear() == targetyear) && ptr->info.search(searchname, ptr->info.getname())) {
 			ptr->info.print();
 		}
